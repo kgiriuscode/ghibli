@@ -11,7 +11,7 @@ export const Sidebar:FC = () => {
         <NavLink 
           key={name} 
           to={path} 
-          className='hover:bg-gray-200 pt-1 pb-1 pl-2 pr-2 rounded'
+          className='hover:bg-gray-200 pt-1 pb-1 pl-2 pr-2 rounded text-l'
         >
           {name}
         </NavLink>

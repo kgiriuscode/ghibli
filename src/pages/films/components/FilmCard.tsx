@@ -1,7 +1,8 @@
 import { type FC } from 'react'
+import { Button } from '../../../components/Button'
 import type { Film } from '../../../types/types'
 
-export const FilmCard:FC<Film> = ({title, description, release_date: releaseDate}) => {
+export const FilmCard:FC<Film> = ({title, description, release_date: releaseDate, people}) => {
   return (
     <div className='flex flex-col items-start gap-4 p-3 min-w-[400px] border-2 border-gray-200 shadow'>
         <div className='flex flex-col gap-3'> 
@@ -9,9 +10,9 @@ export const FilmCard:FC<Film> = ({title, description, release_date: releaseDate
             <p className=' text-sm'>{description}</p>
             <p className=' text-sm text-gray-700'>{`Release date: ${releaseDate}`}</p>
         </div>
-        <button>
+        <Button onClickCallback={()=>{}}>
             Show people
-        </button>
+        </Button>
     </div>
   )
 }
