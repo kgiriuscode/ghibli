@@ -10,7 +10,7 @@ export const Button:FC<PropsWithChildren<ButtonProps>> = ({
 }) => (
     <button 
         onClick={onClickCallback}
-        className=' bg-blue-500 text-white text-l pl-2 pr-2 pt-1 pb-1 rounded cursor-pointer'
+        className=' bg-blue-500 text-white text-l pl-2 pr-2 pt-1 pb-1 rounded cursor-pointer hover:bg-blue-600'
     >
         {children}
     </button>
