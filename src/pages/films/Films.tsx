@@ -9,7 +9,7 @@ export const Films:FC = () => {
   
   return (
    <div className='p-10 w-[100%] overflow-hidden'>
-     <div className='flex overflow-scroll'>
+     <div className='flex overflow-scroll gap-3'>
       {data?.map(film => (
         <FilmCard key={film.title} {...film} />
       ))}
