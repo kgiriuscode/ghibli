@@ -28,15 +28,28 @@ const handleClick = async () => {
         })
     }
 }
+
+const cardStyles = [
+    'flex', 
+    'flex-col', 
+    'items-start', 
+    'gap-4', 
+    'p-3', 
+    'min-w-[400px]', 
+    'border-1', 
+    'border-gray-200', 
+    'shadow', 
+    'rounded'
+].join(' ')
   
     return (
-    <div className='flex flex-col items-start gap-4 p-3 min-w-[400px] border-1 border-gray-200 shadow rounded'>
+    <div className={cardStyles}>
         <div className='flex flex-col gap-3'> 
             <h2 className='text-2xl'>{title}</h2>
             <p className=' text-sm'>{description}</p>
             <p className=' text-sm text-gray-700'>{`Release date: ${releaseDate}`}</p>
         </div>
-        <Button onClickCallback={handleClick}>
+        <Button onClickCallback={handleClick} isDisabled={isFetching}>
             {isFetching ? 'Loading...' : 'Show people'}
         </Button>
     </div>
