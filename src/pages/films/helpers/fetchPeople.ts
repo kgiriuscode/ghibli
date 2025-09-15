@@ -1,6 +1,11 @@
+import pLimit from "p-limit"
+
+const limit = pLimit(5)
+
 export const fetchPeople = async (urls: string[]) => {
     const response = await Promise.all(
-        urls.map(async (url) => {
+        urls.map(async (url) => 
+        limit(async () => {
             const res = await fetch(url, {
                 headers: {
                     'Content-Type': 'applcation/json'
@@ -9,6 +14,7 @@ export const fetchPeople = async (urls: string[]) => {
 
             return res.json()
         })
+        )
     )
 
     return response
