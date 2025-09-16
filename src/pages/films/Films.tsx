@@ -5,17 +5,17 @@ import { FilmCard } from './components/FilmCard'
 import { PeopleList } from './components/PeopleList'
 import { fetchFilms } from './helpers/fetchFilms'
 
-export const Films:FC = () => {
-  const {data: films} = useQuery<Film[]>({queryKey: ['films'], queryFn: fetchFilms})
-  
+export const Films: FC = () => {
+  const { data: films } = useQuery<Film[]>({ queryKey: ['films'], queryFn: fetchFilms })
+
   return (
-   <div className='flex flex-col gap-8 p-10 w-[100%] overflow-hidden min-h-fit'>
-    <div className='flex overflow-scroll gap-3'>
-      {films?.map(film => (
-        <FilmCard key={film.title} {...film} />
-      ))}
+    <div className="flex flex-col gap-8 p-10 w-[100%] overflow-hidden min-h-fit">
+      <div className="flex overflow-scroll gap-3">
+        {films?.map((film) => (
+          <FilmCard key={film.title} {...film} />
+        ))}
+      </div>
+      <PeopleList />
     </div>
-    <PeopleList />
-   </div>
   )
 }

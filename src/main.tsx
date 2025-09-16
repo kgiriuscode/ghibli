@@ -7,7 +7,7 @@ import { Sidebar } from './features/sidebar/Sidebar.tsx'
 import './index.css'
 import { routes } from './routes.tsx'
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -23,5 +23,5 @@ createRoot(document.getElementById('root')!).render(
         </QueryClientProvider>
       </Container>
     </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
 )
