@@ -21,8 +21,12 @@ export const FilmCard: FC<Film> = ({
 
   const handleClick = async () => {
     setIsLoading(true)
-    const res = await refetch()
+    queryClient.setQueryData(['film-people'], {
+      people: null,
+      title: 'Loading...',
+    })
 
+    const res = await refetch()
     if (res.data) {
       const people = res.data.flatMap((fp) => fp)
       queryClient.setQueryData(['film-people'], {
@@ -30,7 +34,6 @@ export const FilmCard: FC<Film> = ({
         title,
       })
     }
-
     setIsLoading(false)
   }
 

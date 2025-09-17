@@ -10,32 +10,35 @@ export const PeopleList: FC = () => {
     enabled: false,
   })
 
-  if (!data?.people) return null
+  const headerText = data?.people ? `People in ${data.title}:` : data?.title
+  const headerStyles = `text-center text-xl ${data?.people ? '' : 'text-gray-500 animate-pulse'}`
 
   return (
     <div className="flex flex-col gap-6">
-      <h3 className=" text-center text-xl">People in {data.title}:</h3>
-      <table className="border-2 border-gray-200 bg-white">
-        <thead>
-          <tr>
-            {HEADINGS.map((heading) => (
-              <th key={heading} className=" text-l font-bold p-2 border-2 border-gray-200">
-                {heading}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody className="text-sm">
-          {data.people.map(({ name, age, gender, eye_color }) => (
-            <tr key={name}>
-              <td className="p-2 border-2 border-gray-200 w-[25%]">{name}</td>
-              <td className="p-2 border-2 border-gray-200 w-[25%]">{age}</td>
-              <td className="p-2 border-2 border-gray-200 w-[25%]">{gender}</td>
-              <td className="p-2 border-2 border-gray-200 w-[25%]">{eye_color}</td>
+      <h3 className={headerStyles}>{headerText}</h3>
+      {data?.people && (
+        <table className="border-1 border-gray-200 bg-white">
+          <thead>
+            <tr>
+              {HEADINGS.map((heading) => (
+                <th key={heading} className=" text-l font-bold p-2 border-1 border-gray-200">
+                  {heading}
+                </th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="text-sm">
+            {data?.people.map(({ name, age, gender, eye_color }) => (
+              <tr key={name}>
+                <td className="p-2 border-1 border-gray-200 w-[25%]">{name}</td>
+                <td className="p-2 border-1 border-gray-200 w-[25%]">{age}</td>
+                <td className="p-2 border-1 border-gray-200 w-[25%]">{gender}</td>
+                <td className="p-2 border-1 border-gray-200 w-[25%]">{eye_color}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   )
 }
