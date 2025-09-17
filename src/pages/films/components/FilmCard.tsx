@@ -1,5 +1,5 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query'
-import { type FC } from 'react'
+import { useState, type FC } from 'react'
 import { Button } from '../../../components/Button'
 import type { Film } from '../../../types/types'
 import { fetchPeople } from '../helpers/fetchPeople'
@@ -10,16 +10,19 @@ export const FilmCard: FC<Film> = ({
   release_date: releaseDate,
   people: peopleUrls,
 }) => {
+  const [isLoading, setIsLoading] = useState(false)
   const queryClient = useQueryClient()
 
-  const { refetch, isFetching } = useQuery({
+  const { refetch } = useQuery({
     queryKey: ['people', peopleUrls],
     queryFn: () => fetchPeople(peopleUrls),
     enabled: false,
   })
 
   const handleClick = async () => {
+    setIsLoading(true)
     const res = await refetch()
+
     if (res.data) {
       const people = res.data.flatMap((fp) => fp)
       queryClient.setQueryData(['film-people'], {
@@ -27,6 +30,8 @@ export const FilmCard: FC<Film> = ({
         title,
       })
     }
+
+    setIsLoading(false)
   }
 
   const cardStyles = [
@@ -49,8 +54,8 @@ export const FilmCard: FC<Film> = ({
         <p className=" text-sm">{description}</p>
         <p className=" text-sm text-gray-700">{`Release date: ${releaseDate}`}</p>
       </div>
-      <Button onClickCallback={handleClick} isDisabled={isFetching}>
-        {isFetching ? 'Loading...' : 'Show people'}
+      <Button onClickCallback={handleClick} isDisabled={isLoading}>
+        {isLoading ? 'Loading...' : 'Show people'}
       </Button>
     </div>
   )
