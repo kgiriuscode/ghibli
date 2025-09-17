@@ -12,9 +12,9 @@ const queryClient = new QueryClient()
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
+      <Sidebar />
       <Container>
         <QueryClientProvider client={queryClient}>
-          <Sidebar />
           <Routes>
             <Route path="/" element={<Navigate to="/films" replace />} />
             {routes.map(({ path, element }) => (

@@ -15,7 +15,7 @@ export const PeopleList: FC = () => {
   return (
     <div className="flex flex-col gap-6">
       <h3 className=" text-center text-xl">People in {data.title}:</h3>
-      <table className="border-2 border-gray-200">
+      <table className="border-2 border-gray-200 bg-white">
         <thead>
           <tr>
             {HEADINGS.map((heading) => (

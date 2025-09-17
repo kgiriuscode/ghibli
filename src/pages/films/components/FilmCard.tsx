@@ -45,6 +45,7 @@ export const FilmCard: FC<Film> = ({
     'border-gray-200',
     'shadow',
     'rounded',
+    'bg-white',
   ].join(' ')
 
   return (

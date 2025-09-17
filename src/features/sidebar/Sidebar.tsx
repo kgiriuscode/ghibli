@@ -6,7 +6,7 @@ export const Sidebar: FC = () => {
   const location = useLocation()
 
   return (
-    <nav className=" flex flex-col gap-3 p-4 pt-10 border-r-gray-200 border-r-2">
+    <nav className=" flex flex-col gap-3 p-4 pt-10 border-r-gray-200 border-r-2 w-[172px] fixed top-0 left-0 h-full">
       {routes.map(({ path, name }) => {
         const isCurrentPage = path === location.pathname
         const navlinkStyles = [
