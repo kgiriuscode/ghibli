@@ -37,10 +37,12 @@ export const FilmCard: FC<Film> = ({
   const cardStyles = [
     'flex',
     'flex-col',
+    'grow-0',
+    'shrink-0',
+    'basis-[400px]',
     'items-start',
     'gap-4',
     'p-3',
-    'min-w-[400px]',
     'border-1',
     'border-gray-200',
     'shadow',
