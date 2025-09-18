@@ -11,7 +11,6 @@ const skeletonStyles = [
   'bg-white',
   'border-1',
   'border-gray-200',
-  'animate-pulse',
   'shrink-0',
   'basis-[320px]',
   'md:basis-[400px]',
@@ -21,7 +20,7 @@ export const FilmCardSkeleton: FC = () => (
   <>
     {placeholderArray.map(() => (
       <div className={skeletonStyles}>
-        <p className="text-l text-gray-500">...Loading</p>
+        <p className="text-xl text-gray-500 animate-pulse">...Loading</p>
       </div>
     ))}
   </>

@@ -29,7 +29,7 @@ export const Sidebar: FC = () => {
     'p-4',
     'pt-20',
     'border-r-gray-200',
-    'border-r-2',
+    'border-r-1',
     'fixed',
     'top-0',
     'left-0',

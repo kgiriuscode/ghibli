@@ -3,6 +3,7 @@ import { type FC } from 'react'
 import type { FilmPeopleQuery } from '../../../types/types'
 
 const HEADINGS = ['Name', 'Age', 'Gender', 'Eye color']
+const tdStyles = 'p-2 border-1 border-gray-200 w-[25%]'
 
 export const PeopleList: FC = () => {
   const { data } = useQuery<FilmPeopleQuery>({
@@ -30,10 +31,10 @@ export const PeopleList: FC = () => {
           <tbody className="text-sm">
             {data?.people.map(({ name, age, gender, eye_color }) => (
               <tr key={name}>
-                <td className="p-2 border-1 border-gray-200 w-[25%]">{name}</td>
-                <td className="p-2 border-1 border-gray-200 w-[25%]">{age}</td>
-                <td className="p-2 border-1 border-gray-200 w-[25%]">{gender}</td>
-                <td className="p-2 border-1 border-gray-200 w-[25%]">{eye_color}</td>
+                <td className={tdStyles}>{name}</td>
+                <td className={tdStyles}>{age}</td>
+                <td className={tdStyles}>{gender}</td>
+                <td className={tdStyles}>{eye_color}</td>
               </tr>
             ))}
           </tbody>
