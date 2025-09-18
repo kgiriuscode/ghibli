@@ -1,7 +1,8 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useState, type FC } from 'react'
+import { toast } from 'react-toastify'
 import { Button } from '../../../components/Button'
-import type { Film } from '../../../types/types'
+import type { Film, FilmPeopleQuery } from '../../../types/types'
 import { fetchPeople } from '../helpers/fetchPeople'
 
 export const FilmCard: FC<Film> = ({
@@ -21,20 +22,31 @@ export const FilmCard: FC<Film> = ({
 
   const handleClick = async () => {
     setIsLoading(true)
-    queryClient.setQueryData(['film-people'], {
-      people: null,
-      title: 'Loading...',
+    queryClient.setQueryData<FilmPeopleQuery>(['film-people'], {
+      placeholder: 'Loading...',
     })
 
     const res = await refetch()
+    setIsLoading(false)
+
+    if (!res.isSuccess) {
+      toast('Something went wrong. Please try again or contact support.', { type: 'error' })
+      queryClient.setQueryData<FilmPeopleQuery>(['film-people'], {
+        people: null,
+        title: null,
+        placeholder: null,
+      })
+      return
+    }
+
     if (res.data) {
       const people = res.data.flatMap((fp) => fp)
-      queryClient.setQueryData(['film-people'], {
+      queryClient.setQueryData<FilmPeopleQuery>(['film-people'], {
         people,
         title,
+        placeholder: null,
       })
     }
-    setIsLoading(false)
   }
 
   const cardStyles = [

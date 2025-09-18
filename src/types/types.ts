@@ -11,3 +11,9 @@ export type Person = {
   gender: string
   eye_color: string
 }
+
+export type FilmPeopleQuery = {
+  people?: Person[] | null
+  title?: string | null
+  placeholder?: string | null
+}
