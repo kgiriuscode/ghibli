@@ -87,6 +87,7 @@ describe('FilmCard component', () => {
     expect(finalData).toEqual({
       people: MOCK_PEOPLE,
       title: MOCK_FILM.title,
+      placeholder: null,
     })
   })
 })
