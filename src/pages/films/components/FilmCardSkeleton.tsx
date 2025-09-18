@@ -13,7 +13,8 @@ const skeletonStyles = [
   'border-gray-200',
   'animate-pulse',
   'shrink-0',
-  'basis-[400px]',
+  'basis-[320px]',
+  'md:basis-[400px]',
 ].join(' ')
 
 export const FilmCardSkeleton: FC = () => (

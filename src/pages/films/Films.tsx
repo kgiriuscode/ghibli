@@ -10,7 +10,7 @@ export const Films: FC = () => {
   const { data: films } = useQuery<Film[]>({ queryKey: ['films'], queryFn: fetchFilms })
 
   return (
-    <div className="flex flex-col gap-8 p-10 w-[100%] overflow-hidden min-h-fit">
+    <div className="flex flex-col gap-8 p-6 pt-10 md:p-10 w-[100%] overflow-hidden min-h-fit">
       <div className="flex overflow-scroll gap-3">
         {films?.length ? (
           films?.map((film) => <FilmCard key={film.title} {...film} />)

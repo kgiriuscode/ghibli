@@ -14,10 +14,10 @@ export const PeopleList: FC = () => {
   const headerStyles = `text-center text-xl ${data?.people ? '' : 'text-gray-500 animate-pulse'}`
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 overflow-x-hidden">
       <h3 className={headerStyles}>{headerText}</h3>
       {data?.people && (
-        <table className="border-1 border-gray-200 bg-white">
+        <table className="border-1 border-gray-200 bg-white break-all">
           <thead>
             <tr>
               {HEADINGS.map((heading) => (
