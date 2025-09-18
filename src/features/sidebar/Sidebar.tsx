@@ -2,11 +2,26 @@ import { type FC } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { routes } from '../../routes'
 
+const sidebarStyles = [
+  'flex',
+  'flex-col',
+  'gap-3',
+  'p-4',
+  'pt-10',
+  'border-r-gray-200',
+  'border-r-2',
+  'w-[172px]',
+  'fixed',
+  'top-0',
+  'left-0',
+  'h-full',
+].join(' ')
+
 export const Sidebar: FC = () => {
   const location = useLocation()
 
   return (
-    <nav className=" flex flex-col gap-3 p-4 pt-10 border-r-gray-200 border-r-2 w-[172px] fixed top-0 left-0 h-full">
+    <nav className={sidebarStyles}>
       {routes.map(({ path, name }) => {
         const isCurrentPage = path === location.pathname
         const navlinkStyles = [
