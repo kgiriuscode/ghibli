@@ -17,5 +17,5 @@ export const fetchPeople = async (urls: string[]) => {
     )
   )
 
-  return response
+  return response.flatMap((res) => res)
 }

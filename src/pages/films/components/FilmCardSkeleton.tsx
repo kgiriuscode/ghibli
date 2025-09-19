@@ -18,8 +18,8 @@ const skeletonStyles = [
 
 export const FilmCardSkeleton: FC = () => (
   <>
-    {placeholderArray.map(() => (
-      <div className={skeletonStyles}>
+    {placeholderArray.map((index) => (
+      <div key={index} className={skeletonStyles}>
         <p className="text-xl text-gray-500 animate-pulse">...Loading</p>
       </div>
     ))}
